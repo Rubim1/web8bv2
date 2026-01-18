@@ -44,7 +44,7 @@ const pageTransition = {
     type: "tween",          // Tipe animasi (tween = smooth)
     ease: "easeOut",        // Easing function
     duration: 0.3,          // Durasi 300ms
-};
+} as const;
 
 // ============================================
 // KOMPONEN PAGE TRANSITION
