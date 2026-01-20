@@ -14,11 +14,11 @@ export default function OrganizationalStructure() {
     const ben2 = students.find(s => s.jabatan === "Bendahara 2");
 
     // Helper untuk render card pengurus
-    const RenderCard = ({ title, name, variant = "default", className = "" }: { title: string, name: string | undefined, variant?: "default" | "glass", className?: string }) => (
+    const RenderCard = ({ title, name, gender, variant = "default", className = "" }: { title: string, name: string | undefined, gender?: "L" | "P", variant?: "default" | "glass", className?: string }) => (
         <Card className={`h-full flex flex-col items-center text-center p-6 ${className}`} variant={variant}>
             {/* Foto Placeholder (Lingkaran) */}
-            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#D4763A]/20 to-[#2D5A3D]/20 mb-4 flex items-center justify-center text-3xl border border-[#F5F1E8]/10 flex-shrink-0 mx-auto">
-                {title.includes("Wali") ? "👩‍🏫" : "👮"}
+            <div className={`w-20 h-20 rounded-full bg-gradient-to-br from-[#D4763A]/20 to-[#2D5A3D]/20 mb-4 flex items-center justify-center text-3xl border border-[#F5F1E8]/10 flex-shrink-0 mx-auto ${gender ? '' : 'opacity-50'}`}>
+                {title.includes("Wali") ? "👩‍🏫" : gender === "L" ? "👦" : gender === "P" ? "👧" : "👤"}
             </div>
 
             {/* Jabatan Badge */}
@@ -65,12 +65,12 @@ export default function OrganizationalStructure() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-20 max-w-3xl mx-auto">
                         <div className="relative">
-                            <RenderCard title="Ketua Kelas" name={ketua?.nama} variant="glass" />
+                            <RenderCard title="Ketua Kelas" name={ketua?.nama} gender={ketua?.gender} variant="glass" />
                             {/* Line ke bawah (Sekretaris) */}
                             <div className="absolute left-1/2 -bottom-8 w-px h-8 bg-[#F5F1E8]/20 -translate-x-1/2 hidden md:block"></div>
                         </div>
                         <div className="relative">
-                            <RenderCard title="Wakil Ketua" name={wakil?.nama} variant="glass" />
+                            <RenderCard title="Wakil Ketua" name={wakil?.nama} gender={wakil?.gender} variant="glass" />
                             {/* Line ke bawah (Bendahara) */}
                             <div className="absolute left-1/2 -bottom-8 w-px h-8 bg-[#F5F1E8]/20 -translate-x-1/2 hidden md:block"></div>
                         </div>
@@ -87,14 +87,14 @@ export default function OrganizationalStructure() {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {/* Sekretaris Group */}
                         <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <RenderCard title="Sekretaris 1" name={sek1?.nama} variant="glass" />
-                            <RenderCard title="Sekretaris 2" name={sek2?.nama} variant="glass" />
+                            <RenderCard title="Sekretaris 1" name={sek1?.nama} gender={sek1?.gender} variant="glass" />
+                            <RenderCard title="Sekretaris 2" name={sek2?.nama} gender={sek2?.gender} variant="glass" />
                         </div>
 
                         {/* Bendahara Group */}
                         <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <RenderCard title="Bendahara 1" name={ben1?.nama} variant="glass" />
-                            <RenderCard title="Bendahara 2" name={ben2?.nama} variant="glass" />
+                            <RenderCard title="Bendahara 1" name={ben1?.nama} gender={ben1?.gender} variant="glass" />
+                            <RenderCard title="Bendahara 2" name={ben2?.nama} gender={ben2?.gender} variant="glass" />
                         </div>
                     </div>
                 </div>

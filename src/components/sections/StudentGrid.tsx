@@ -60,8 +60,8 @@ export default function StudentGrid({ limit, lightMode = false }: StudentGridPro
             `}>
                             {/* Fallback Emoji jika belum ada foto, atau Image component */}
                             <div className="flex items-center justify-center w-full h-full text-3xl bg-cover bg-center leading-none select-none pt-1">
-                                {/* Kita pakai emoji random gender based on absen genap/ganjil dummy logic */}
-                                {student.noAbsen % 2 === 0 ? "👧" : "👦"}
+                                {/* Emoji berdasarkan gender */}
+                                {student.gender === "L" ? "👦" : "👧"}
                             </div>
                         </div>
 

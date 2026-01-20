@@ -75,7 +75,14 @@ export default function JadwalContent() {
                                         <ul className="space-y-4 relative z-10">
                                             {schedule.jadwal?.map((item, i) => (
                                                 <li key={i} className="flex justify-between items-start group">
-                                                    <span className="font-medium text-[#F5F1E8]/90 group-hover:text-[#F5F1E8] transition-colors">{item.pelajaran}</span>
+                                                    <div className="flex flex-col">
+                                                        {item.jp && (
+                                                            <span className="text-[10px] font-bold text-[#F5F1E8]/50 uppercase tracking-wider mb-0.5">
+                                                                {item.jp}
+                                                            </span>
+                                                        )}
+                                                        <span className="font-medium text-[#F5F1E8]/90 group-hover:text-[#F5F1E8] transition-colors">{item.pelajaran}</span>
+                                                    </div>
                                                     <span className="text-xs font-mono text-[#F5F1E8]/40 bg-[#F5F1E8]/5 px-2 py-1 rounded group-hover:bg-[#F5F1E8]/10 transition-colors">
                                                         {item.jam}
                                                     </span>
