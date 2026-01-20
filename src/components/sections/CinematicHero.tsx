@@ -64,7 +64,7 @@ export default function CinematicHero() {
                     <motion.div variants={textVars} className="flex items-center gap-4 mb-4">
                         <div className="h-[1px] w-12 bg-[#D4763A]" />
                         <span className="text-sm font-bold tracking-[0.3em] uppercase text-[#D4763A]">
-                            Since 2024
+                            Since 2025
                         </span>
                     </motion.div>
 

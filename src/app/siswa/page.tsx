@@ -5,10 +5,10 @@
 
 import { Metadata } from "next";
 import StudentGrid from "@/components/sections/StudentGrid";
-import Card from "@/components/ui/Card";
 import { siteConfig } from "@/data/siteConfig";
 import { students } from "@/data/students";
 import OrganizationalStructure from "@/components/sections/OrganizationalStructure";
+import SiPalingAwards from "@/components/sections/SiPalingAwards";
 
 // ============================================
 // METADATA (SEO)
@@ -22,10 +22,6 @@ export const metadata: Metadata = {
 // KOMPONEN HALAMAN SISWA
 // ============================================
 export default function SiswaPage() {
-    // Hitung statistik
-    const totalSiswa = students.length;
-    const pengurusCount = students.filter(s => s.jabatan).length;
-
     return (
         <div className="bg-[#0f1c14] min-h-screen text-[#F5F1E8] selection:bg-[#D4763A] selection:text-white">
             {/* === HERO SECTION === */}
@@ -53,8 +49,13 @@ export default function SiswaPage() {
                         </p>
                     </div>
 
-                    {/* === ORGANIZATIONAL STRUCTURE (NEW FEATURE) === */}
-                    <OrganizationalStructure />
+                    {/* === ORGANIZATIONAL STRUCTURE === */}
+                    <div className="mb-20">
+                        <OrganizationalStructure />
+                    </div>
+
+                    {/* === HALL OF FAME (SI PALING AWARDS) === */}
+                    <SiPalingAwards />
 
                 </div>
             </section>
@@ -79,4 +80,3 @@ export default function SiswaPage() {
         </div>
     );
 }
-
