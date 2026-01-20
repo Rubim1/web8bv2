@@ -98,10 +98,10 @@ export default function GlobalSound() {
 
     // Render Mute Button (Floating)
     return (
-        <div className="fixed bottom-24 right-6 z-[200] md:bottom-6 md:right-6">
+        <div className="fixed z-[9999] top-4 right-4 md:top-auto md:bottom-6 md:right-6">
             <button
                 onClick={() => setIsMuted(!isMuted)}
-                className="bg-[#121212]/80 backdrop-blur border border-[#333] p-2 rounded-full text-[#b3b3b3] hover:text-white hover:border-[#1DB954] transition-all shadow-lg"
+                className="bg-[#121212]/80 backdrop-blur border border-[#333] p-2.5 rounded-full text-[#b3b3b3] hover:text-white hover:border-[#1DB954] transition-all shadow-lg active:scale-95"
                 title={isMuted ? "Unmute Sounds" : "Mute Sounds"}
             >
                 {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}

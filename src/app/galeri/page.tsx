@@ -51,13 +51,14 @@ export default function GaleriPage() {
 
             {/* === CATEGORY FILTER === */}
             <section className="py-8 bg-[#0f1c14]/80 backdrop-blur-md border-b border-[#F5F1E8]/10 sticky top-20 z-30">
-                <div className="container">
-                    <div className="flex gap-2 overflow-x-auto pb-2 justify-center scrollbar-hide">
+                <div className="container overflow-hidden">
+                    {/* FIX RESPONSIVE: justify-start di mobile biar bisa scroll awal sampai akhir. justify-center cuma di desktop */}
+                    <div className="flex gap-2 overflow-x-auto pb-4 px-4 w-full touch-pan-x justify-start md:justify-center no-scrollbar items-center">
                         {categories.map((category) => (
                             <button
                                 key={category}
                                 className={`
-                  px-6 py-2 rounded-full text-sm font-semibold
+                  flex-shrink-0 px-6 py-2 rounded-full text-sm font-semibold
                   whitespace-nowrap transition-all duration-300 border
                   ${category === "Semua"
                                         ? "bg-[#D4763A] text-white border-[#D4763A]"
@@ -73,20 +74,20 @@ export default function GaleriPage() {
             </section>
 
             {/* === GALLERY CONTENT === */}
-            <section className="py-20 bg-[#0f1c14] min-h-[60vh]">
-                <div className="container">
+            <section className="py-10 bg-[#0f1c14] min-h-[60vh] overflow-hidden">
+                <div className="container px-4">
                     {/* Jika galeri kosong, tampilkan placeholder dengan style DARK GLASS */}
                     {isGalleryEmpty ? (
                         <div className="max-w-3xl mx-auto animate-fade-in-up">
-                            <Card className="text-center py-20 relative overflow-hidden" variant="glass" padding="lg">
+                            <Card className="text-center py-10 md:py-20 relative overflow-hidden mx-auto w-full" variant="glass" padding="lg">
                                 {/* Glow effect */}
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#D4763A]/10 rounded-full blur-[100px]" />
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 md:w-64 h-40 md:h-64 bg-[#D4763A]/10 rounded-full blur-[80px] md:blur-[100px]" />
 
-                                <div className="relative z-10">
+                                <div className="relative z-10 p-4">
                                     {/* Ilustrasi */}
-                                    <div className="mb-8">
-                                        <span className="text-8xl block mb-4 drop-shadow-2xl grayscale opacity-80">📸</span>
-                                        <div className="flex justify-center gap-4 opacity-30">
+                                    <div className="mb-6 md:mb-8">
+                                        <span className="text-6xl md:text-8xl block mb-4 drop-shadow-2xl grayscale opacity-80">📸</span>
+                                        <div className="flex justify-center gap-4 opacity-30 scale-75 md:scale-100">
                                             <span className="text-4xl animate-bounce">🦕</span>
                                             <span className="text-4xl animate-bounce delay-100">🌿</span>
                                             <span className="text-4xl animate-bounce delay-200">🦖</span>
@@ -94,10 +95,10 @@ export default function GaleriPage() {
                                     </div>
 
                                     {/* Pesan */}
-                                    <h3 className="text-3xl font-bold text-[#F5F1E8] mb-4">
+                                    <h3 className="text-2xl md:text-3xl font-bold text-[#F5F1E8] mb-4">
                                         Galeri Masih Kosong
                                     </h3>
-                                    <p className="text-[#F5F1E8]/60 max-w-md mx-auto leading-relaxed mb-10 text-lg">
+                                    <p className="text-[#F5F1E8]/60 max-w-md mx-auto leading-relaxed mb-8 text-base md:text-lg">
                                         "Sebuah gambar bernilai seribu kata, tapi saat ini belum ada yang diupload.
                                         Foto-foto kegiatan kelas akan segera hadir di sini!"
                                     </p>
@@ -111,23 +112,23 @@ export default function GaleriPage() {
                             </Card>
 
                             {/* Preview kategori yang akan ada */}
-                            <div className="mt-16">
-                                <h4 className="text-center text-[#F5F1E8]/40 mb-8 uppercase tracking-widest text-sm">
+                            <div className="mt-12 md:mt-16">
+                                <h4 className="text-center text-[#F5F1E8]/40 mb-6 md:mb-8 uppercase tracking-widest text-xs md:text-sm">
                                     Kategori Dokumentasi
                                 </h4>
-                                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                                     {categories.filter(c => c !== "Semua").map((category, index) => {
                                         const icons = ["📚", "⚽", "🎉", "🤝"];
                                         return (
                                             <Card
                                                 key={category}
                                                 variant="glass"
-                                                className="text-center py-8 opacity-50 hover:opacity-100 transition-opacity cursor-not-allowed group"
+                                                className="text-center py-6 md:py-8 opacity-50 hover:opacity-100 transition-opacity cursor-not-allowed group w-full"
                                             >
-                                                <span className="text-4xl mb-4 block group-hover:scale-110 transition-transform">
+                                                <span className="text-3xl md:text-4xl mb-4 block group-hover:scale-110 transition-transform">
                                                     {icons[index] || "📷"}
                                                 </span>
-                                                <p className="text-sm font-bold text-[#F5F1E8]/70">
+                                                <p className="text-xs md:text-sm font-bold text-[#F5F1E8]/70">
                                                     {category}
                                                 </p>
                                             </Card>
@@ -137,8 +138,8 @@ export default function GaleriPage() {
                             </div>
                         </div>
                     ) : (
-                        /* TODO: Grid galeri ketika ada foto */
-                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        /* TODO: Grid galeri ketika ada foto (Masonry Style) */
+                        <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
                             {/* Photo cards will go here */}
                         </div>
                     )}

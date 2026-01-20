@@ -38,7 +38,7 @@ export default function Footer() {
     }
 
     return (
-        <footer className="fixed bottom-0 left-0 right-0 bg-[#181818] border-t border-[#282828] px-4 py-3 z-[100] md:h-[90px] h-[64px] flex items-center justify-between pb-[env(safe-area-inset-bottom)] transition-all duration-300">
+        <footer className="fixed bottom-[64px] md:bottom-0 left-0 right-0 bg-[#181818] border-t border-[#282828] px-4 py-3 z-[100] md:h-[90px] h-[64px] flex items-center justify-between pb-[env(safe-area-inset-bottom)] transition-all duration-300">
 
             {/* Toggle Minimize Button (Absolute position) */}
             <button
