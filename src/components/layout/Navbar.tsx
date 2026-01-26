@@ -227,12 +227,14 @@ export default function Navbar() {
 
 
             {/* ================= MOBILE BOTTOM BAR ================= */}
-            <nav className="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-[#121212]/95 backdrop-blur-lg border-t border-[#282828] z-50 grid grid-cols-5 px-1 py-1">
-                {/* Combine main & playlist for mobile, pick top 5 important ones */}
+            <nav className="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-[#121212]/95 backdrop-blur-lg border-t border-[#282828] z-50 flex items-center overflow-x-auto no-scrollbar px-2 gap-1 touch-pan-x">
+                {/* Scrollable Mobile Menu */}
                 <NavItem item={mainMenu[0]} isMobile /> {/* Home */}
                 <NavItem item={mainMenu[1]} isMobile /> {/* Cari */}
+                <NavItem item={playlistMenu[0]} isMobile /> {/* Siswa (Data Siswa) */}
                 <NavItem item={playlistMenu[1]} isMobile /> {/* Jadwal */}
                 <NavItem item={{ href: "/galeri", label: "Galeri", icon: ImageIcon }} isMobile />
+                <NavItem item={{ href: "/pengumuman", label: "Info", icon: Megaphone }} isMobile />
                 <NavItem item={{ href: "/profil", label: "Profil", icon: UserCircle }} isMobile />
             </nav>
         </>

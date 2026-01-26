@@ -12,62 +12,62 @@ export const jadwalPiket: PiketGroup[] = [
     {
         hari: "Senin",
         anggota: [
-            "Ahmad Fauzi",
-            "Bunga Citra",
-            "Cahya Dewi",
-            "Dimas Pratama",
-            "Eka Saputra"
+            "Afida",
+            "Bacila",
+            "Naura",
+            "Zicho",
+            "Rubim",
+            "Adrian"
         ]
     },
     {
         hari: "Selasa",
         anggota: [
-            "Fitri Handayani",
-            "Gilang Ramadhan",
-            "Hana Permata",
-            "Irfan Hakim",
-            "Jasmine Putri"
+            "Afifah",
+            "Albert",
+            "Bunga",
+            "Jovan",
+            "Neyshira"
         ]
     },
     {
         hari: "Rabu",
         anggota: [
-            "Kevin Wijaya",
-            "Lina Marlina",
-            "Muhammad Rizky",
-            "Nadya Safitri",
-            "Oscar Pratama"
+            "Nury",
+            "Desta",
+            "Anindya",
+            "Alvaro",
+            "Wahyu"
         ]
     },
     {
         hari: "Kamis",
         anggota: [
-            "Putri Ayu",
-            "Qori Firmansyah",
-            "Rina Wulandari",
-            "Sandi Nugroho",
-            "Tania Maharani"
+            "Argisel",
+            "Dafa",
+            "Gita",
+            "Rexahnafia",
+            "Vino"
         ]
     },
     {
         hari: "Jumat",
         anggota: [
-            "Umar Faruq",
-            "Vina Oktavia",
-            "Wahyu Hidayat",
-            "Xena Amelia",
-            "Yoga Permana"
+            "Khansa",
+            "Rexamalia",
+            "Kiano",
+            "Diko"
         ]
     },
     {
         hari: "Sabtu",
         anggota: [
-            "Zahra Kirana",
-            "Adi Nugraha",
-            "Bella Sari",
-            "Candra Wijaya",
-            "Dina Rahayu",
-            "Evan Maulana"
+            "Dyrandra",
+            "Mirna",
+            "Aura",
+            "Tika",
+            "Cakra",
+            "Sandi"
         ]
     }
 ];

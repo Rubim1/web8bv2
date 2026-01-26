@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { waliKelas, students } from "@/data/students";
 import Card from "@/components/ui/Card";
+import Link from "next/link";
 
 export default function OrganizationalStructure() {
     // Ambil data pengurus dari array students
@@ -43,13 +44,16 @@ export default function OrganizationalStructure() {
             <div className="flex flex-col gap-8 max-w-5xl mx-auto">
                 {/* LEVEL 1: WALI KELAS */}
                 <div className="flex justify-center">
-                    <div className="w-full max-w-xs relative z-10">
-                        <RenderCard
-                            title="Wali Kelas"
-                            name={waliKelas.nama}
-                            variant="glass"
-                            className="border-[#D4763A]/30 shadow-[0_0_50px_-10px_rgba(212,118,58,0.2)]"
-                        />
+                    <div className="w-full max-w-xs relative z-10 transition-transform hover:scale-105 duration-300">
+                        {/* LINK KE HALAMAN GURU */}
+                        <Link href="/wali-kelas" className="block cursor-pointer">
+                            <RenderCard
+                                title="Wali Kelas"
+                                name={waliKelas.nama}
+                                variant="glass"
+                                className="border-[#D4763A]/30 shadow-[0_0_50px_-10px_rgba(212,118,58,0.2)] hover:border-[#D4763A] transition-colors"
+                            />
+                        </Link>
                         {/* Connecting Line Down */}
                         <div className="absolute left-1/2 -bottom-8 w-px h-8 bg-[#F5F1E8]/20 -translate-x-1/2"></div>
                     </div>
